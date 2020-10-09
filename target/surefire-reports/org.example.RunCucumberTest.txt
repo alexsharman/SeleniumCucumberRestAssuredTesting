@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: org.example.RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 33.504 sec <<< FAILURE!
+Checking table values on w3schools.com #1(Is it Friday yet? #2)  Time elapsed: 0.028 sec  <<< ERROR!
+java.lang.NullPointerException
+	at org.example.base.BaseSelenium.initializeDriver(BaseSelenium.java:49)
+	at org.example.StepDefinitions.im_on_w3schools_table_page(StepDefinitions.java:44)
+	at ✽.I'm on w3schools HTML tables page(classpath:org/example/is_it_friday_yet.feature:27)
+
+Checking table values on w3schools.com #2(Is it Friday yet? #2)  Time elapsed: 0.004 sec  <<< ERROR!
+java.lang.NullPointerException
+	at org.example.base.BaseSelenium.initializeDriver(BaseSelenium.java:49)
+	at org.example.StepDefinitions.im_on_w3schools_table_page(StepDefinitions.java:44)
+	at ✽.I'm on w3schools HTML tables page(classpath:org/example/is_it_friday_yet.feature:27)
+
