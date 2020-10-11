@@ -1,0 +1,9 @@
+{
+  "NewConfirmed": "string",
+  "TotalConfirmed": "string",
+  "NewDeaths": "string",
+  "TotalDeaths": "string",
+  "NewRecovered": "string",
+  "TotalRecovered": "string"
+}
+
