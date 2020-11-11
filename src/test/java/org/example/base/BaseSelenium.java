@@ -14,13 +14,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseSelenium {
 
-    private Properties prop;
-    public WebDriver driver;
+    private static Properties prop;
+    public static WebDriver driver;
 
     public ChromeOptions getChromeOptionsHandleSSL() {
         // Create an object of desired capabilities class with Chrome driver
@@ -90,5 +91,39 @@ public class BaseSelenium {
 
     public WebElement findElementByText(String text) {
         return driver.findElement(By.xpath("//*[text()='" + text + "']"));
+    }
+
+    public WebElement findElementByTextContains(String text) {
+        return driver.findElement(By.xpath("//*[contains(text(), 'My Button')]"));
+    }
+
+    public List<WebElement> findElementsByTextContains(String text) {
+        return driver.findElements(By.xpath("//*[contains(text(), 'My Button')]"));
+    }
+
+    public static void cleanUp() {
+        driver.quit();
+    }
+
+    public void waitMilliseconds(int millis) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isElementDisplayed(By byElement) {
+        WebElement element = null;
+        try {
+            element = driver.findElement(byElement);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        if (element == null) {
+            return false;
+        } else {
+            return element.isDisplayed();
+        }
     }
 }
